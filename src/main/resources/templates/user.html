@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Spring Security Example</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="p-3 mb-2 bg-dark text-white">
+    <h5>
+        <b>
+            <td th:text="${userModel.email}"/>
+        </b>
+        with roles:
+        <td th:text="${userModel.roles}"/>
+        <a th:href="@{/login?logout}" class="float-right text-secondary">Logout</a>
+    </h5>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+
+
+        <div class="col-2" style="padding: 0; padding-top: 15px">
+            <ul class="nav nav-pills flex-column">
+                <a class="nav-link active" data-toggle="tab" href="">User</a>
+            </ul>
+        </div>
+
+
+        <div class="col-10 bg-light">
+            <div class="tab-content" style="padding-top: 15px; height: 100vh">
+
+                <div class="tab-pane fade show active" id="">
+                    <h1>User information-page</h1>
+                    <div class="card">
+                        <h5 class="card-header">About user</h5>
+                        <div class="card-body text">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Role</th>
+                                </tr>
+
+                                </thead>
+                                <tbody>
+                                <tr th:object="${userModel}">
+                                    <td th:text="${userModel.id}"/>
+                                    <td th:text="${userModel.username}"/>
+                                    <td th:text="${userModel.lastName}"/>
+                                    <td th:text="${userModel.age}"/>
+                                    <td th:text="${userModel.email}"/>
+                                    <td th:text="${userModel.roles}"/>
+                                    <td>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
